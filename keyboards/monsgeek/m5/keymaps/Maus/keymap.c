@@ -15,7 +15,6 @@
  */
 
 #include QMK_KEYBOARD_H
-
 enum __layers {
     WIN_B,
     WIN_WASD,
@@ -26,8 +25,6 @@ enum __layers {
 };
 
 bool rgb_matrix_indicators_user(void) {
-  if (rgb_matrix_config.enable == 1) {
-    if (1) {
 		//Change the hue of the numpad numbers
 		int numpad_matrix[3][3] = {{58, 59, 60}, {75, 76, 77}, {91, 92, 93}};
 		for (int j=0; j<3; j++){
@@ -45,16 +42,16 @@ bool rgb_matrix_indicators_user(void) {
 		for (int m=0; m<4; m++){
 			switch (m){
 				case 0:
-					rgb_matrix_set_color(arrow_keys[m], 166, 223, 0);
+					rgb_matrix_set_color(arrow_keys[m], 135, 184, 0);
 					break;
 				case 1:
-					rgb_matrix_set_color(arrow_keys[m], 166, 223, 0);
+					rgb_matrix_set_color(arrow_keys[m], 135, 184, 0);
 					break;
 				case 2:
-					rgb_matrix_set_color(arrow_keys[m], 247, 137, 0);
+					rgb_matrix_set_color(arrow_keys[m], 184, 125, 0);
 					break;
 				case 3:
-					rgb_matrix_set_color(arrow_keys[m], 0, 192, 38);
+					rgb_matrix_set_color(arrow_keys[m], 28, 184, 0);
 					break;
 			}
 		}
@@ -63,21 +60,21 @@ bool rgb_matrix_indicators_user(void) {
 		for (int n=0; n<3; n++){
 			for (int o=0; o<3; o++){
 				if(o==0){
-					rgb_matrix_set_color(home_block[n][o], 247, 137, 0);
+					rgb_matrix_set_color(home_block[n][o], 184, 125, 0);
 				}
 				if(o==1){
-					rgb_matrix_set_color(home_block[n][o], 166, 223, 0);
+					rgb_matrix_set_color(home_block[n][o], 135, 184, 0);
 				}
 				if(o==2){
-					rgb_matrix_set_color(home_block[n][o], 0, 192, 38);
+					rgb_matrix_set_color(home_block[n][o], 28, 184, 0);
 				}
 			}
 		}
 
 	if (host_keyboard_led_state().caps_lock) {
-        rgb_matrix_set_color(62, 255, 0, 96); // Change the colour of Caps Lock upon activation
+        rgb_matrix_set_color(62, 0, 254, 0); // Change the colour of Caps Lock upon activation
     } else {
-        rgb_matrix_set_color(62, 255, 80, 0);
+        rgb_matrix_set_color(62, 0, 255, 0);
     }
 
 	if (host_keyboard_led_state().num_lock) {
@@ -85,15 +82,9 @@ bool rgb_matrix_indicators_user(void) {
     } else {
         rgb_matrix_set_color(37, 0, 182, 79);
     }
-    }
-  }
-  return true;
+	return true;
 }
 
-bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
-
-	return false;
-}
 
 // clang-format off
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
